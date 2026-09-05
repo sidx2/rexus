@@ -386,7 +386,7 @@ export default function Analytics({
                   <Tooltip
                     contentStyle={{ background: '#14181c', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 10, fontSize: 12.5 }}
                     labelStyle={{ color: '#fff' }}
-                    formatter={(value: number, name: string) => [name === 'revenue' ? formatRupees(value) : value, name === 'revenue' ? 'Revenue' : 'Orders']}
+                    formatter={(value: any, name: any) => [name === 'revenue' ? formatRupees(value) : value, name === 'revenue' ? 'Revenue' : 'Orders']}
                   />
                   <Area type="monotone" dataKey="revenue" stroke="var(--brand-primary)" strokeWidth={2} fill="url(#anRevenueFill)" />
                 </AreaChart>
@@ -431,7 +431,7 @@ export default function Analytics({
                     />
                     <Tooltip
                       contentStyle={{ background: '#14181c', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 10, fontSize: 12.5 }}
-                      formatter={(value: number, key: string) => [key === 'revenue' ? formatRupees(value) : `${value} sold`, key === 'revenue' ? 'Revenue' : 'Quantity']}
+                      formatter={(value: any, key: any) => [key === 'revenue' ? formatRupees(Number(value) ?? 0) : `${value} sold`, key === 'revenue' ? 'Revenue' : 'Quantity']}
                     />
                     <Bar dataKey="revenue" fill="var(--brand-primary)" radius={[0, 6, 6, 0]} barSize={16} />
                   </BarChart>
@@ -454,7 +454,7 @@ export default function Analytics({
                     />
                     <Tooltip
                       contentStyle={{ background: '#14181c', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 10, fontSize: 12.5 }}
-                      formatter={(value: number) => [formatRupees(value), 'Revenue']}
+                      formatter={(value: any) => [formatRupees(value), 'Revenue']}
                     />
                     <Bar dataKey="revenue" fill="var(--brand-accent)" radius={[0, 6, 6, 0]} barSize={16} />
                   </BarChart>
@@ -472,7 +472,7 @@ export default function Analytics({
                   <YAxis hide />
                   <Tooltip
                     contentStyle={{ background: '#14181c', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 10, fontSize: 12.5 }}
-                    formatter={(value: number) => [`${value} orders`, '']}
+                    formatter={(value: any) => [`${value} orders`, '']}
                     labelFormatter={(label) => label}
                   />
                   <Bar dataKey="orders" radius={[4, 4, 0, 0]}>
