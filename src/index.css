@@ -1,0 +1,24 @@
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+@keyframes pingSlow { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(2.4); opacity: 0; } }
+.animate-ping-slow { animation: pingSlow 1.8s cubic-bezier(0,0,0.2,1) infinite; }
+
+@keyframes arrive {
+  0% { box-shadow: 0 0 0 0 rgba(201,161,95,0.45); }
+  70% { box-shadow: 0 0 0 10px rgba(201,161,95,0); }
+  100% { box-shadow: 0 0 0 0 rgba(201,161,95,0); }
+}
+.animate-arrive { animation: arrive 1.6s ease-out 2; }
+
+@keyframes ordersSpin { to { transform: rotate(360deg); } }
+.orders-spin { animation: ordersSpin 1s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-ping-slow, .animate-arrive, .orders-spin { animation: none !important; }
+}

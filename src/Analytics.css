@@ -1,0 +1,180 @@
+.an-view {
+  max-width: 1200px;
+}
+
+/* --- KPI row --- */
+
+.an-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.an-kpi {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 18px;
+  border-radius: var(--radius-md);
+}
+
+.an-kpi-icon {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--primary-glow);
+  color: var(--brand-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.an-kpi-body {
+  min-width: 0;
+}
+
+.an-kpi-label {
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin: 0 0 6px;
+}
+
+.an-kpi-value-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.an-kpi-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.3px;
+}
+
+.an-trend {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 6px;
+}
+.an-trend--good {
+  color: #6ee7a8;
+  background: rgba(52, 211, 153, 0.12);
+}
+.an-trend--bad {
+  color: #fda4af;
+  background: rgba(244, 63, 94, 0.12);
+}
+.an-trend--flat {
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* --- chart cards --- */
+
+.an-grid-main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.an-span-2 {
+  grid-column: span 2;
+}
+
+.an-chart-card {
+  padding: 24px;
+}
+
+.an-chart-header {
+  margin-bottom: 16px;
+}
+.an-chart-header h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 3px;
+}
+.an-chart-header p {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.an-empty-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 180px;
+  color: var(--text-muted);
+  font-size: 13px;
+  text-align: center;
+}
+
+/* --- top tables list (simple ranked rows, no chart needed) --- */
+
+.an-table-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.an-table-row {
+  display: grid;
+  grid-template-columns: 22px 1fr auto auto;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 4px;
+  border-bottom: 1px solid var(--surface-border);
+  font-size: 13px;
+}
+.an-table-row:last-child {
+  border-bottom: none;
+}
+
+.an-table-rank {
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.an-table-name {
+  font-weight: 500;
+  color: var(--text-main);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.an-table-orders {
+  color: var(--text-muted);
+  font-size: 11.5px;
+  white-space: nowrap;
+}
+
+.an-table-revenue {
+  font-weight: 600;
+  color: var(--brand-primary);
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .an-grid-main {
+    grid-template-columns: 1fr;
+  }
+  .an-span-2 {
+    grid-column: span 1;
+  }
+}

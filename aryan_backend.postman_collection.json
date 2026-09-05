@@ -1,0 +1,601 @@
+{
+  "info": {
+    "_postman_id": "c7138396-fb81-47fe-8b8b-4ad263d392f8",
+    "name": "aryan_backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "31551530",
+    "_collection_link": "https://go.postman.co/collection/31551530-c7138396-fb81-47fe-8b8b-4ad263d392f8?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "user",
+      "item": [
+        {
+          "name": "register user",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"org_id\": 1,\r\n  \"phone_number\": \"9876548210\",\r\n  \"name\": \"PK Sharma\"\r\n//   \"password\": \"securepassword123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:6001/api/v1/user/registerUser",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "6001",
+              "path": [
+                "api",
+                "v1",
+                "user",
+                "registerUser"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "login",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjgsIm9yZ19pZCI6MSwicGhvbmVfbnVtYmVyIjoiOTg3NjU0MzIxMCIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc4Njc3NjA1OSwiZXhwIjoxNzg2ODYyNDU5fQ.qEi-I5NtuvIH0JoATDB8uRdLhMFzsmU3peo_pl_-GiQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"org_id\": 1,\r\n  \"phone_number\": \"9876543210\",\r\n  \"password\": \"securepassword123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:6001/api/v1/user/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "6001",
+              "path": [
+                "api",
+                "v1",
+                "user",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "Categories",
+          "item": [
+            {
+              "name": "manage categories",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjgsIm9yZ19pZCI6MSwicGhvbmVfbnVtYmVyIjoiOTg3NjU0MzIxMCIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc4NzQ2NTMxMSwiZXhwIjoxNzg3NTUxNzExfQ.anmM_jXgkEyJE-aiQh801u4TJotgAlQja3PUtdL3C7o",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"id\": 1,\r\n  \"org_id\": 1,\r\n  \"name\": \"Chinese Starters Updated\",\r\n  \"description\": \"Updated description for our starters\",\r\n  \"display_order\": 2,\r\n  \"is_active\": true\r\n\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:6001/api/v1/product/manageCategories",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "6001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "product",
+                    "manageCategories"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get categories",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjgsIm9yZ19pZCI6MSwicGhvbmVfbnVtYmVyIjoiOTg3NjU0MzIxMCIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc4NzQ2NTMxMSwiZXhwIjoxNzg3NTUxNzExfQ.anmM_jXgkEyJE-aiQh801u4TJotgAlQja3PUtdL3C7o",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:6001/api/v1/product/getCategories?id=1&org_id=1&page=1&limit=10",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "6001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "product",
+                    "getCategories"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "1"
+                    },
+                    {
+                      "key": "org_id",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete categories",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjgsIm9yZ19pZCI6MSwicGhvbmVfbnVtYmVyIjoiOTg3NjU0MzIxMCIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc4NzQ2NTMxMSwiZXhwIjoxNzg3NTUxNzExfQ.anmM_jXgkEyJE-aiQh801u4TJotgAlQja3PUtdL3C7o",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"id\": 1,\r\n  \"org_id\": 1,\r\n  \"name\": \"Chinese Starters Updated\",\r\n  \"description\": \"Updated description for our starters\",\r\n  \"display_order\": 2,\r\n  \"is_active\": true\r\n\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:6001/api/v1/product/deleteCategory?id=1&org_id=1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "6001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "product",
+                    "deleteCategory"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "1"
+                    },
+                    {
+                      "key": "org_id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "manage product",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjgsIm9yZ19pZCI6MSwicGhvbmVfbnVtYmVyIjoiOTg3NjU0MzIxMCIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc4NzQ2NTMxMSwiZXhwIjoxNzg3NTUxNzExfQ.anmM_jXgkEyJE-aiQh801u4TJotgAlQja3PUtdL3C7o",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"org_id\": 1,\r\n  \"category_id\": 1,\r\n  \"name\": \"Veg Triple Schezwan Rice\",\r\n  \"price\": 220.00,\r\n  \"is_available\": true,\r\n  \"description\": \"Spicy combination of rice, noodles, and crispy fried noodles with Schezwan gravy.\",\r\n  \"image_url\": \"https://example.com/images/schezwan-rice.jpg\",\r\n  \"food_type\": \"veg\",\r\n  \"is_active\":false,\r\n  \"is_deleted\":true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:6001/api/v1/product/manageProducts",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "6001",
+              "path": [
+                "api",
+                "v1",
+                "product",
+                "manageProducts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get products",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjgsIm9yZ19pZCI6MSwicGhvbmVfbnVtYmVyIjoiOTg3NjU0MzIxMCIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc4NzQ2NTMxMSwiZXhwIjoxNzg3NTUxNzExfQ.anmM_jXgkEyJE-aiQh801u4TJotgAlQja3PUtdL3C7o",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:6001/api/v1/product/getProducts?org_id=1&id=1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "6001",
+              "path": [
+                "api",
+                "v1",
+                "product",
+                "getProducts"
+              ],
+              "query": [
+                {
+                  "key": "org_id",
+                  "value": "1"
+                },
+                {
+                  "key": "id",
+                  "value": "1"
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete products",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjgsIm9yZ19pZCI6MSwicGhvbmVfbnVtYmVyIjoiOTg3NjU0MzIxMCIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc4Njk4NjI1MSwiZXhwIjoxNzg3MDcyNjUxfQ.DOwstlEldbyJaMBOZPCk4kLUS4sDOT2DgymYQbDDI_8",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:6001/api/v1/product/deleteProduct?org_id=1&id=1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "6001",
+              "path": [
+                "api",
+                "v1",
+                "product",
+                "deleteProduct"
+              ],
+              "query": [
+                {
+                  "key": "org_id",
+                  "value": "1"
+                },
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "orders",
+      "item": [
+        {
+          "name": "create order",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjgsIm9yZ19pZCI6MSwicGhvbmVfbnVtYmVyIjoiOTg3NjU0MzIxMCIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc4NzUwNDkxNiwiZXhwIjoxNzg3NTkxMzE2fQ.jkfneJOgCIWoRRuZS8cV4pNiH4ORzvtDiuDcAv7t7_g",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"org_id\": 1,\r\n  \"user_id\": 8,\r\n  \"table_number\": \"Table 5\",\r\n  \"payment_method\": \"upi\",\r\n  \"total_amount\": 440.00,\r\n  \"items\": [\r\n    {\r\n      \"product_id\": 1,\r\n      \"product_name\": \"Veg Triple Schezwan Rice\",\r\n      \"unit_price\": 240.00,\r\n      \"quantity\": 1,\r\n      \"subtotal\": 240.00,\r\n      \"special_instructions\": \"Extra spicy please\"\r\n    },\r\n    {\r\n      \"product_id\": 2,\r\n      \"product_name\": \"Veg Spring Roll\",\r\n      \"unit_price\": 100.00,\r\n      \"quantity\": 2,\r\n      \"subtotal\": 200.00,\r\n      \"special_instructions\": \"Provide extra schezwan chutney\"\r\n    }\r\n  ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:6001/api/v1/order/createOrder",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "6001",
+              "path": [
+                "api",
+                "v1",
+                "order",
+                "createOrder"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update order status",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjgsIm9yZ19pZCI6MSwicGhvbmVfbnVtYmVyIjoiOTg3NjU0MzIxMCIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc4NzUwNDkxNiwiZXhwIjoxNzg3NTkxMzE2fQ.jkfneJOgCIWoRRuZS8cV4pNiH4ORzvtDiuDcAv7t7_g",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"order_id\": 2,\r\n  \"org_id\": 1,\r\n//   \"order_status\": \"served\"\r\n\"payment_status\": \"paid\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:6001/api/v1/order/updateOrderStatus",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "6001",
+              "path": [
+                "api",
+                "v1",
+                "order",
+                "updateOrderStatus"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete order",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjgsIm9yZ19pZCI6MSwicGhvbmVfbnVtYmVyIjoiOTg3NjU0MzIxMCIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc4NzUwNDkxNiwiZXhwIjoxNzg3NTkxMzE2fQ.jkfneJOgCIWoRRuZS8cV4pNiH4ORzvtDiuDcAv7t7_g",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"order_id\": 2,\r\n  \"org_id\": 1,\r\n//   \"order_status\": \"served\"\r\n\"payment_status\": \"paid\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:6001/api/v1/order/deleteOrder?org_id=1&id=4",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "6001",
+              "path": [
+                "api",
+                "v1",
+                "order",
+                "deleteOrder"
+              ],
+              "query": [
+                {
+                  "key": "org_id",
+                  "value": "1"
+                },
+                {
+                  "key": "id",
+                  "value": "4"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update order",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"order_id\": 5,\r\n  \"org_id\": 1,\r\n  \"total_amount\": 480.00,\r\n  \"items\": [\r\n    {\r\n      \"item_id\": 1, \r\n      \"product_id\": 1,\r\n      \"product_name\": \"Veg Triple Schezwan Rice\",\r\n      \"unit_price\": 240.00,\r\n      \"quantity\": 2, \r\n      \"subtotal\": 480.00,\r\n      \"special_instructions\": \"Make both extra spicy\"\r\n    }\r\n   \r\n  ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:6001/api/v1/order/updateOrderDetails",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "6001",
+              "path": [
+                "api",
+                "v1",
+                "order",
+                "updateOrderDetails"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "upload image",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjgsIm9yZ19pZCI6MSwicGhvbmVfbnVtYmVyIjoiOTg3NjU0MzIxMCIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc4NzQ2NTMxMSwiZXhwIjoxNzg3NTUxNzExfQ.anmM_jXgkEyJE-aiQh801u4TJotgAlQja3PUtdL3C7o",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "image",
+              "type": "file",
+              "uuid": "30013d67-256f-488e-81ff-36063f42f18e",
+              "src": "/C:/Users/Sid/Documents/68747470733a2f2f796176757a63656c696b65722e6769746875622e696f2f73616d706c652d696d616765732f696d6167652d313032312e6a7067.jpg"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:6001/api/v1/images/upload-image",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "6001",
+          "path": [
+            "api",
+            "v1",
+            "images",
+            "upload-image"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
