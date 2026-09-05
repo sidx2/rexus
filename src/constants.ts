@@ -5,7 +5,7 @@ import {
   type LucideIcon,
 } from 'lucide-react';
 
-export const ORDERS_SOCKET_URL = 'wss://localhost:8080/ws/orders';
+export const ORDERS_SOCKET_URL = 'wss://56.228.32.113:8080/ws/orders';
 /*
 export const ORDER_STATUS_META: Record<
   OrderStatus,
@@ -44,7 +44,7 @@ export const COLORS = {
 // ---------------------------------------------------------------------
 
 // The Rust backend (axum + sqlite) from earlier — defaults to :8080.
-export const API_BASE_URL = 'http://localhost:8080';
+export const API_BASE_URL = 'http://56.228.32.113:8080';
 
 // The guest-facing ordering site — used to build/preview QR values.
 // (The backend itself already bakes this into `qrValue` on each table,

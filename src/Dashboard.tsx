@@ -17,7 +17,8 @@ import {
   Users,
   ClipboardList,
   Pencil, X, Check, ImagePlus,
-  BarChart3
+  BarChart3,
+  Menu
 } from 'lucide-react';
 import './Dashboard.css';
 import type { DateFilter, Order, OrderStatus, Table, MenuItem, Org, AuthResponse } from './models';
@@ -438,6 +439,8 @@ export default function Dashboard({
       .sort((a, b) => b.createdAt - a.createdAt);
   }, [sourceOrders, statusFilter, searchQuery]);
 
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   return (
     <div className="ds-container" style={themeVars}>
       {/* Animated Background Orbs — colored from the restaurant's own brand palette */}
@@ -445,8 +448,18 @@ export default function Dashboard({
       <div className="ds-bg-orb orb-2"></div>
       <div className="ds-bg-orb orb-3"></div>
 
+      {isSidebarOpen && (
+        <div
+          className="ds-sidebar-overlay"
+          onClick={() => setIsSidebarOpen(false)}
+        />
+      )}
+
       {/* Sidebar */}
-      <aside className="ds-sidebar glass-panel">
+      <aside className={`ds-sidebar glass-panel ${isSidebarOpen ? 'open' : ''}`}>
+        <button className="ds-mobile-close" onClick={() => setIsSidebarOpen(false)}>
+          <X size={20} />
+        </button>
         <div className="ds-logo-container">
           <div className="ds-logo-icon">
             <ChefHat size={24} />
@@ -503,6 +516,9 @@ export default function Dashboard({
 
       {/* Main Content */}
       <main className="ds-main">
+        <button className="ds-mobile-toggle" onClick={() => setIsSidebarOpen(true)}>
+          <Menu size={24} />
+        </button>
         {activeTab === 'menu' && (
           <div className="ds-view fade-in">
             <header className="ds-header">
