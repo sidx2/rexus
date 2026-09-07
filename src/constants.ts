@@ -58,7 +58,7 @@ export const CLIENT_HOST = `https://${HOST}:5000/`;
 export function getOrdersSocketUrl(orgId: string, token: string): string {
   const wsBase = API_BASE_URL.replace(/^https/, 'ws');
   console.log("sock = ", `${wsBase}/ws/orders?orgId=${encodeURIComponent(orgId)}&token=${encodeURIComponent(token)}`)
-  return `${wsBase}/ws/orders?orgId=${encodeURIComponent(orgId)}&token=${encodeURIComponent(token)}`;
+  return `${wsBase}/wss/orders?orgId=${encodeURIComponent(orgId)}&token=${encodeURIComponent(token)}`;
 }
 
 export const AUTH_STORAGE_KEY = 'wayfarer_admin_auth';
