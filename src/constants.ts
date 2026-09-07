@@ -46,17 +46,17 @@ export const COLORS = {
 // The Rust backend (axum + sqlite) from earlier — defaults to :8080.
 const local = false;
 const HOST = local ? "localhost" : "20.219.138.119"
-export const API_BASE_URL = `http://${HOST}:8080`;
+export const API_BASE_URL = `https://${HOST}:8080`;
 
 // The guest-facing ordering site — used to build/preview QR values.
 // (The backend itself already bakes this into `qrValue` on each table,
 // this is only used for display fallbacks.)
-export const CLIENT_HOST = `http://${HOST}:5000/`;
+export const CLIENT_HOST = `https://${HOST}:5000/`;
 
 // wss://.../ws/orders?orgId=<id>&token=<jwt> — the backend authenticates
 // the socket via these two query params before upgrading.
 export function getOrdersSocketUrl(orgId: string, token: string): string {
-  const wsBase = API_BASE_URL.replace(/^http/, 'ws');
+  const wsBase = API_BASE_URL.replace(/^https/, 'ws');
   console.log("sock = ", `${wsBase}/ws/orders?orgId=${encodeURIComponent(orgId)}&token=${encodeURIComponent(token)}`)
   return `${wsBase}/ws/orders?orgId=${encodeURIComponent(orgId)}&token=${encodeURIComponent(token)}`;
 }
