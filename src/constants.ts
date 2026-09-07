@@ -46,7 +46,7 @@ export const COLORS = {
 // The Rust backend (axum + sqlite) from earlier — defaults to :8080.
 const local = false;
 const HOST = local ? "localhost" : "20.219.138.119"
-export const API_BASE_URL = `https://${HOST}:8080`;
+export const API_BASE_URL = `https://${HOST}`;
 
 // The guest-facing ordering site — used to build/preview QR values.
 // (The backend itself already bakes this into `qrValue` on each table,
