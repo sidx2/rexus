@@ -236,6 +236,10 @@ export default function Dashboard({
 
   const handleCreateTable = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (newTableSeats < 1 || newTableSeats >= 100) {
+      alert("Seat capacity must be between 1 & 100");
+      return;
+    }
     if (!newTableName.trim() || isCreatingTable) return;
     setIsCreatingTable(true);
     setTableError(null);
@@ -723,11 +727,9 @@ export default function Dashboard({
                 <div className="ds-seats-input">
                   <Users size={14} />
                   <input
-                    type="number"
-                    min={1}
-                    max={24}
+                    type=""
                     value={newTableSeats}
-                    onChange={(e) => setNewTableSeats(Math.max(1, Number(e.target.value) || 1))}
+                    onChange={(e) => setNewTableSeats(Number.isInteger( +e.target.value) ? +e.target.value : newTableSeats)}
                     className="ds-input ds-seats-number"
                   />
                 </div>
