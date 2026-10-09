@@ -256,6 +256,8 @@ export default function Dashboard({
   };
 
   const handleDeleteTable = async (tableId: string) => {
+    alert("🚧 Deleting tables is disabled temporarily!");
+    return;
     const prev = tables;
     setTables((cur) => cur.filter((t) => t.id !== tableId));
     try {
