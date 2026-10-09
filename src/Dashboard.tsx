@@ -262,7 +262,7 @@ export default function Dashboard({
     setTables((cur) => cur.filter((t) => t.id !== tableId));
     try {
       await api.deleteTable(org.id, token, tableId);
-    } catch (err) {
+    } catch (err: any) {
       setTables(prev); // roll back on failure
       setTableError(err instanceof Error ? err.message : 'Could not delete the table.');
     }
