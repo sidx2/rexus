@@ -18,7 +18,8 @@ import {
   ClipboardList,
   Pencil, X, Check, ImagePlus,
   BarChart3,
-  Menu
+  Menu,
+  Boxes
 } from 'lucide-react';
 import './Dashboard.css';
 import type { DateFilter, Order, OrderStatus, Table, MenuItem, Org, AuthResponse } from './models';
@@ -29,6 +30,7 @@ import Settings from './Settings';
 import * as api from './api';
 
 import Analytics from './Analytics';
+import Inventory from './Inventory';
 
 interface MenuItemFormState {
   name: string;
@@ -43,7 +45,7 @@ const EMPTY_ITEM_FORM: MenuItemFormState = {
   name: '', price: '', category: '', portion: '', description: '', image: null,
 };
 
-type Tab = 'menu' | 'tables' | 'orders' | 'analytics' | 'settings';
+type Tab = 'menu' | 'tables' | 'orders' | 'analytics' | 'settings' | 'inventory';
 
 export default function Dashboard({
   auth, onOrgUpdated, onLogout,
@@ -350,7 +352,7 @@ export default function Dashboard({
       socket.send(JSON.stringify({ type: 'orders:subscribe', scope: 'today' }));
     };
 
-    socket.onmessage = (event) => {
+    socket.onmessage = async (event) => {
       let msg: any;
       try { msg = JSON.parse(event.data); } catch { return; }
 
@@ -369,6 +371,8 @@ export default function Dashboard({
               return next;
             });
           }, 4000);
+
+          playOrderSound();
           break;
         case 'order:update':
           setOrders((prev) => prev.map((o) => (o.id === msg.order.id ? msg.order : o)));
@@ -389,6 +393,22 @@ export default function Dashboard({
 
     socket.onerror = () => socket.close();
   }, [org.id, token]);
+
+  const audioRef = React.useRef(new Audio("/new_order.mp3"));
+
+  const playOrderSound = async () => {
+    const audio = audioRef.current;
+
+    audio.pause();
+    audio.currentTime = 0;
+
+    try {
+      await audio.play();
+    } catch (error) {
+      console.error("Audio playback failed:", error);
+    }
+  };
+      
 
   useEffect(() => {
     mountedRef.current = true;
@@ -504,6 +524,12 @@ export default function Dashboard({
           >
             <SettingsIcon size={18} /> Settings
           </button>
+          {/* <button
+            className={`ds-nav-btn ${activeTab === 'inventory' ? 'active' : ''}`}
+            onClick={() => setActiveTab('inventory')}
+          >
+            <Boxes size={18} /> Inventory
+          </button> */}
         </nav>
 
         <div className="ds-sidebar-footer">
@@ -731,7 +757,7 @@ export default function Dashboard({
                   <input
                     type=""
                     value={newTableSeats}
-                    onChange={(e) => setNewTableSeats(Number.isInteger( +e.target.value) ? +e.target.value : newTableSeats)}
+                    onChange={(e) => setNewTableSeats(Number.isInteger(+e.target.value) ? +e.target.value : newTableSeats)}
                     className="ds-input ds-seats-number"
                   />
                 </div>
@@ -938,6 +964,7 @@ export default function Dashboard({
         {activeTab === 'settings' && (
           <Settings org={org} token={token} onOrgUpdated={onOrgUpdated} />
         )}
+        {activeTab === 'inventory' && <Inventory />}
       </main>
     </div>
   );
