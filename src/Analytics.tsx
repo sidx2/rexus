@@ -129,7 +129,7 @@ function buildTopTables(orders: Order[]) {
 }
 
 function buildStatusBreakdown(orders: Order[]) {
-  const counts: Record<OrderStatus, number> = { new: 0, preparing: 0, ready: 0, served: 0, cancelled: 0 };
+  const counts: Record<OrderStatus, number> = { new: 0, paid: 0, cancelled: 0 };
   orders.forEach((o) => { counts[o.status] += 1; });
   return (Object.keys(counts) as OrderStatus[])
     .filter((s) => counts[s] > 0)

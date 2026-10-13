@@ -1,6 +1,6 @@
 export type DateFilter = 'today' | 'yesterday' | '7d' | 'custom';
 
-export type OrderStatus = 'new' | 'preparing' | 'ready' | 'served' | 'cancelled';
+export type OrderStatus = 'new' | 'paid' | 'cancelled';
 
 export interface OrderItem {
   id: string;

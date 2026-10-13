@@ -425,6 +425,7 @@ export default function Dashboard({
     if (!next) return;
     setOrders((prev) => prev.map((o) => (o.id === order.id ? { ...o, status: next, updatedAt: Date.now() } : o)));
     socketRef.current?.send(JSON.stringify({ type: 'order:updateStatus', orderId: order.id, status: next }));
+    debugger
   }, []);
 
   const fetchPastOrders = useCallback(async (from: Date, to: Date) => {
@@ -452,7 +453,7 @@ export default function Dashboard({
   const sourceOrders = dateFilter === 'today' ? orders : pastOrders;
 
   const statusCounts = useMemo(() => {
-    const counts: Record<'all' | OrderStatus, number> = { all: sourceOrders.length, new: 0, preparing: 0, ready: 0, served: 0, cancelled: 0 };
+    const counts: Record<'all' | OrderStatus, number> = { all: sourceOrders.length, new: 0, paid: 0, cancelled: 0 };
     sourceOrders.forEach((o) => { counts[o.status] += 1; });
     return counts;
   }, [sourceOrders]);

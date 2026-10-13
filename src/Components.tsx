@@ -150,9 +150,9 @@ export function StatusFilterPills({
   const options: { id: 'all' | OrderStatus; label: string; color: string }[] = [
     { id: 'all', label: 'All', color: COLORS.textSecondary },
     { id: 'new', label: 'New', color: ORDER_STATUS_META.new.color },
-    { id: 'preparing', label: 'Preparing', color: ORDER_STATUS_META.preparing.color },
-    { id: 'ready', label: 'Ready', color: ORDER_STATUS_META.ready.color },
-    { id: 'served', label: 'Served', color: ORDER_STATUS_META.served.color },
+    { id: 'paid', label: 'Paid', color: ORDER_STATUS_META.paid.color },
+    // { id: 'ready', label: 'Ready', color: ORDER_STATUS_META.ready.color },
+    // { id: 'served', label: 'Served', color: ORDER_STATUS_META.served.color },
     { id: 'cancelled', label: 'Cancelled', color: ORDER_STATUS_META.cancelled.color },
   ];
 
@@ -198,7 +198,11 @@ export function OrderCard({
   onAdvance: (order: Order) => void;
 }) {
   const meta = ORDER_STATUS_META[order.status];
-  const StatusIcon = meta.icon;
+
+  if (!meta) {
+    debugger;
+  }
+  const StatusIcon = meta?.icon;
 
   return (
     <div
@@ -220,7 +224,7 @@ export function OrderCard({
           bottom: 0,
           left: 0,
           width: 3,
-          backgroundColor: meta.color,
+          backgroundColor: meta?.color,
         }}
       />
       <div style={{ minWidth: 0, flex: 1, paddingLeft: 8 }}>
@@ -250,12 +254,12 @@ export function OrderCard({
               padding: '4px 10px',
               fontSize: 11,
               fontWeight: 500,
-              color: meta.color,
-              backgroundColor: `${meta.color}1A`,
-              border: `1px solid ${meta.color}33`,
+              color: meta?.color,
+              backgroundColor: `${meta?.color}1A`,
+              border: `1px solid ${meta?.color}33`,
             }}
           >
-            <StatusIcon size={12} strokeWidth={2} /> {meta.label}
+            <StatusIcon size={12} strokeWidth={2} /> {meta?.label}
           </span>
         </div>
 
@@ -300,7 +304,7 @@ export function OrderCard({
             <span style={{ fontFamily: fontMono, fontSize: 15, color: COLORS.textPrimary }}>
               {formatCurrency(order.total)}
             </span>
-            {meta.next && (
+            {meta?.next && (
               <button
                 type="button"
                 onClick={() => onAdvance(order)}
@@ -319,7 +323,7 @@ export function OrderCard({
                 onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = COLORS.brassHover)}
                 onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = COLORS.brass)}
               >
-                {meta.nextLabel}
+                {meta?.nextLabel}
               </button>
             )}
           </div>

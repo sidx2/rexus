@@ -3,6 +3,7 @@ import {
   Search, RefreshCw, Clock, Sparkles, BellRing,
   CheckCircle2, XCircle, ReceiptText, ChefHat,
   type LucideIcon,
+  ListOrdered,
 } from 'lucide-react';
 
 /*
@@ -73,10 +74,8 @@ export const AUTH_STORAGE_KEY = 'wayfarer_admin_auth';
 export const ORDER_STATUS_META: Record<
   OrderStatus,
   { label: string; color: string; icon: LucideIcon; next?: OrderStatus; nextLabel?: string }> = {
-  new:        { label: 'New',        color: '#C9A15F', icon: Sparkles,    next: 'preparing', nextLabel: 'Start preparing' },
-  preparing:  { label: 'Preparing',  color: '#7E9BB0', icon: ChefHat,     next: 'ready',      nextLabel: 'Mark ready' },
-  ready:      { label: 'Ready',      color: '#8FA37E', icon: BellRing,    next: 'served',     nextLabel: 'Mark served' },
-  served:     { label: 'Served',     color: '#6C7276', icon: CheckCircle2 },
+  new:        { label: 'New',        color: '#C9A15F', icon: Sparkles,    next: 'paid', nextLabel: 'Mark Paid' },
+  paid:     { label: 'Paid',     color: '#6C7276', icon: CheckCircle2 },
   cancelled:  { label: 'Cancelled',  color: '#A8798A', icon: XCircle },
 };
 
