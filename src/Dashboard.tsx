@@ -425,7 +425,6 @@ export default function Dashboard({
     if (!next) return;
     setOrders((prev) => prev.map((o) => (o.id === order.id ? { ...o, status: next, updatedAt: Date.now() } : o)));
     socketRef.current?.send(JSON.stringify({ type: 'order:updateStatus', orderId: order.id, status: next }));
-    debugger
   }, []);
 
   const fetchPastOrders = useCallback(async (from: Date, to: Date) => {

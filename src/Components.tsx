@@ -200,7 +200,7 @@ export function OrderCard({
   const meta = ORDER_STATUS_META[order.status];
 
   if (!meta) {
-    debugger;
+    // debugger;
   }
   const StatusIcon = meta?.icon;
 
