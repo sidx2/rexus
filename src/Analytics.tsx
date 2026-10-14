@@ -148,7 +148,7 @@ function computeKpis(orders: Order[]): Kpis {
   const live = orders.filter((o) => o.status !== 'cancelled');
   const revenue = live.reduce((sum, o) => sum + o.total, 0);
   const cancelledCount = orders.length - live.length;
-  const served = orders.filter((o) => o.status === 'served');
+  const served = orders.filter((o) => o.status === 'paid');
   const avgFulfillmentMs = served.length
     ? served.reduce((sum, o) => sum + (o.updatedAt - o.createdAt), 0) / served.length
     : 0;
